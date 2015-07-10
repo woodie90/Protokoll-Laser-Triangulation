@@ -1,1 +1,25 @@
 \section{Auswertung}
+
+\begin{table}[b]
+	\centering
+	\pgfplotstabletypeset[
+	col sep=comma,
+	precision = 2,
+	fixed,
+	dec sep align,
+	every head row/.style={,after row=\hline},
+	every last row/.style={after row=\hline},
+	columns={d,png,pnm,dg,dm,afg,afm,rfg,rfm},
+	columns/d/.style={column name=$z/\si{\milli\meter}$},
+	columns/png/.style={column name=$px_g$},
+	columns/pnm/.style={column name=$px_m$},
+	columns/dg/.style={column name=$z_g/\si{\milli\meter}$},
+	columns/dm/.style={column name=$z_m/\si{\milli\meter}$},
+	columns/afg/.style={column name=$\Delta z_g/\si{\milli\meter}$},
+	columns/afm/.style={column name=$\Delta z_m/\si{\milli\meter}$},
+	columns/rfg/.style={column name=$\frac{\Delta z_g}{z}$},
+	columns/rfm/.style={column name=$\frac{\Delta z_m}{z}$},	
+	]{./tab/Triangulation.csv}
+	\caption{Messwerte}
+	\label{tab:messwerte}
+\end{table}
