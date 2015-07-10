@@ -23,3 +23,69 @@
 	\caption{Messwerte}
 	\label{tab:messwerte}
 \end{table}
+
+\begin{figure}[b]
+	\centering
+	\begin{tikzpicture}[trim axis left, trim axis right]
+	\begin{axis}[width=0.9\textwidth,
+	height=0.35\textheight,
+	%y label style = {rotate=-90},
+	%y tick label style={/pgf/number format/.cd,fixed, fixed zerofill},
+	%x tick label style={/pgf/number format/.cd,fixed, fixed zerofill},
+	grid=both,                     
+	%title={Der Titel}, 
+	xlabel={$z/\si{\milli\meter}$}, 
+	ylabel={Relativer Fehler in $\%$},
+	ybar,
+	bar width = 7pt,
+	%xmin=400,
+	%xmax=2600,
+	%ymin=0,
+	%ymax=4,
+	%xtick={0,0.2,0.4,0.6,0.8,1},
+	legend pos = south east,
+	legend cell align = left,
+	legend entries={$\frac{\Delta z_g}{z}$, $\frac{\Delta z_m}{z}$}
+	]                
+	%\addlegendimage{mark=*, color=red}
+	%\addlegendimage{mark=*, color=blue}     
+	\addplot[yellow!90!black, fill] table[x=d, y=rfg, col sep=comma]{./tab/Triangulation.csv};
+	\addplot[green!60!black, fill] table[x=d, y=rfm, col sep=comma]{./tab/Triangulation.csv};
+	\end{axis}
+	\end{tikzpicture}
+	\caption{Relative Fehler}
+	\label{fig:plot_rel}
+\end{figure}
+
+\begin{figure}[b]
+	\centering
+	\begin{tikzpicture}[trim axis left, trim axis right]
+	\begin{axis}[width=0.9\textwidth,
+	height=0.35\textheight,
+	%y label style = {rotate=-90},
+	%y tick label style={/pgf/number format/.cd,fixed, fixed zerofill},
+	%x tick label style={/pgf/number format/.cd,fixed, fixed zerofill},
+	grid=both,                     
+	%title={Der Titel}, 
+	xlabel={$z/\si{\milli\meter}$}, 
+	ylabel={Absolute Fehler in $\si{\milli\meter}$},
+	ybar,
+	bar width = 7pt,
+	%xmin=400,
+	%xmax=2600,
+	%ymin=0,
+	%ymax=4,
+	%xtick={0,0.2,0.4,0.6,0.8,1},
+	legend pos = south east,
+	legend cell align = left,
+	legend entries={$\Delta z_g$, $\Delta z_m$}
+	]                
+	%\addlegendimage{mark=*, color=red}
+	%\addlegendimage{mark=*, color=blue}     
+	\addplot[blue, fill] table[x=d, y=afg, col sep=comma]{./tab/Triangulation.csv};
+	\addplot[red, fill] table[x=d, y=afm, col sep=comma]{./tab/Triangulation.csv};
+	\end{axis}
+	\end{tikzpicture}
+	\caption{Absolute Fehler}
+	\label{fig:plot_abs}
+\end{figure}
