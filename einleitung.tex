@@ -1,1 +1,41 @@
 \section{Einleitung}
+
+\begin{equation}
+	z = z_{ges} - z_0
+\end{equation}
+
+\begin{align}
+	\sin(\ang{90}-\beta+\alpha) &= \frac{z_{ges}}{g'}\\ \sin(\beta-\alpha) &= \frac{d}{g'}\\
+	\sin(\ang{90}-\beta) &= \frac{z_0}{g_1}\\ \sin(\beta) &= \frac{d}{g_1}
+\end{align}
+
+\begin{align}
+	z &= d\cdot\left(\frac{\sin(\ang{90}-(\beta-\alpha))}{\sin(\beta-\alpha)}-\frac{\sin(\ang{90}-\beta)}{\sin(\beta)}\right)\\
+	  &= d\cdot\left(\frac{\cos(\beta-\alpha)}{\sin(\beta-\alpha)}-\frac{\cos(\beta)}{\sin(\alpha)}\right)\\
+	  &= d\cdot\left(\cot(\beta-\alpha)-\cot(\beta)\right)
+\end{align}
+
+\begin{align}
+	\sin(\alpha) &= \frac{\Delta p'}{b'}\\
+	\cos(\alpha) &= \frac{b}{b'}\\
+	\frac{\sin(\alpha)}{\cos(\alpha)} &= \frac{\Delta p'}{b} = \tan(\alpha)\\
+	\alpha &= \arctan\left(\frac{\Delta p'}{b}\right)
+\end{align}
+
+\begin{align}
+	\sin(\beta) &= \frac{d}{g_1}\\
+	d &= g_1\cdot\sin(\beta)
+\end{align}
+
+\begin{equation}
+	z = g_1\cdot\sin(\beta)\cdot\left\{\cot\left[\beta-\arctan\left(\frac{\Delta p'}{b}\right)\right]-\cot(\beta)\right\}
+\end{equation}
+
+\begin{align}
+	\frac{1}{f} &= \frac{1}{b} + \frac{1}{g}\\
+	b &= \frac{f\cdot g}{g-f}
+\end{align}
+
+\begin{equation}
+	z = g_1\cdot\sin(\beta)\cdot\left\{\cot\left[\beta-\arctan\left(\frac{\Delta p'}{\frac{f\cdot g}{g-f}}\right)\right]-\cot(\beta)\right\}
+\end{equation}
