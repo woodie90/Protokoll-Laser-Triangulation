@@ -1,41 +1,61 @@
 \section{Einleitung}
 
+\subsection{Prinzip der Laser-Triangulation}
+
+\subsection{Herleitung}
+Die zurückgelegte Entfernung ergibt sich aus der Differenz der Gesamtentfernung $z_{ges}$ des Startpunktes $z_0$.
 \begin{equation}
 	z = z_{ges} - z_0
+	\label{eq:z1}
 \end{equation}
-
+Da sich die Strahlengänge in rechtwinklige Dreiecke unterteilen lassen, können durch Anwendung des Cosinus- und Sinussatzes Ausdrücke für $z_{ges}$ und $z_0$ bestimmt werden, die nur von der Entfernung $d$ zwischen Linse und Laser und den Winkeln $\alpha$ und $\beta$ abhängen.
 \begin{align}
-	\sin(\ang{90}-\beta+\alpha) &= \frac{z_{ges}}{g'}\\ \sin(\beta-\alpha) &= \frac{d}{g'}\\
-	\sin(\ang{90}-\beta) &= \frac{z_0}{g_1}\\ \sin(\beta) &= \frac{d}{g_1}
+	\left.\begin{aligned}
+		\cos(\beta-\alpha) &= \frac{z_{ges}}{g'}\\
+		\sin(\beta-\alpha) &= \frac{d}{g'}
+	\end{aligned}\qquad\right\}\qquad z_{ges} &= d\cdot\frac{cos(\beta-\alpha)}{\sin(\beta-\alpha)}\\[1em]
+	\left.\begin{aligned}
+		\cos(\beta) &= \frac{z_0}{g_1}\\ 
+		\sin(\beta) &= \frac{d}{g_1}
+	\end{aligned}\qquad\right\}\qquad z_0 &= d\cdot\frac{cos(\beta)}{\sin(\beta)}
 \end{align}
-
+Die entstandenen Terme können nun in Gleichung~(\ref{eq:z1}) eingesetzt werden. Wie man leicht sieht lassen sich die Brüche der Winkelfunktionen in den Cotangens überführen. 
 \begin{align}
-	z &= d\cdot\left(\frac{\sin(\ang{90}-(\beta-\alpha))}{\sin(\beta-\alpha)}-\frac{\sin(\ang{90}-\beta)}{\sin(\beta)}\right)\\
-	  &= d\cdot\left(\frac{\cos(\beta-\alpha)}{\sin(\beta-\alpha)}-\frac{\cos(\beta)}{\sin(\alpha)}\right)\\
+	z &= d\cdot\left(\frac{\cos(\beta-\alpha)}{\sin(\beta-\alpha)}-\frac{\cos(\beta)}{\sin(\alpha)}\right)\\
 	  &= d\cdot\left(\cot(\beta-\alpha)-\cot(\beta)\right)
+	  \label{eq:z2}
 \end{align}
-
-\begin{align}
-	\sin(\alpha) &= \frac{\Delta p'}{b'}\\
-	\cos(\alpha) &= \frac{b}{b'}\\
-	\frac{\sin(\alpha)}{\cos(\alpha)} &= \frac{\Delta p'}{b} = \tan(\alpha)\\
-	\alpha &= \arctan\left(\frac{\Delta p'}{b}\right)
-\end{align}
-
+Da der Winkel $\alpha$ nicht direkt gemessen werden kann muss ein Ausdruck gefunden werden, der von den Parametern des Optischen Systems abhängt. Dazu werden zunächst die Punktverschiebung auf dem CCD-Sensor $\Delta p'$ und die Bildweite $b$ als bekannt angenommen.
+\begin{equation}
+	\left.\begin{aligned}
+		\sin(\alpha) &= \frac{\Delta p'}{b'}\\
+	\cos(\alpha) &= \frac{b}{b'}
+	\end{aligned}\qquad\right\}\qquad
+	\frac{\sin(\alpha)}{\cos(\alpha)} = \frac{\Delta p'}{b} = \tan(\alpha)
+\end{equation}
+Durch Umkehrung des Tangens erhält man nun für $\alpha$:
+\begin{equation}
+	\alpha = \arctan\left(\frac{\Delta p'}{b}\right)
+	\label{eq:alpha}
+\end{equation}
+Da auch der Abstand $d$ zwischen Brennpunkt und Laser nicht genau bestimmt werden kann, ist es notwendig diesen durch bekannte Größen zu substituieren. Abhilfe schafft hier die Anwendung des Sinussatzes auf den Winkel $\beta$.
 \begin{align}
 	\sin(\beta) &= \frac{d}{g_1}\\
 	d &= g_1\cdot\sin(\beta)
+	\label{eq:d}
 \end{align}
-
+Setzt man nun (\ref{eq:alpha}) und (\ref{eq:d}) in Gleichung~(\ref{eq:z2}) ein, so ergibt sich folgender Ausdruck:
 \begin{equation}
 	z = g_1\cdot\sin(\beta)\cdot\left\{\cot\left[\beta-\arctan\left(\frac{\Delta p'}{b}\right)\right]-\cot(\beta)\right\}
+	\label{eq:z3}
 \end{equation}
-
+Mit Hilfe der Linsengleichung (\ref{eq:linsengleichung}) muss nun noch ein passender Ausdruck für $b$ gefunden werden.
 \begin{align}
-	\frac{1}{f} &= \frac{1}{b} + \frac{1}{g}\\
-	b &= \frac{f\cdot g}{g-f}
+	\frac{1}{f} &= \frac{1}{b} + \frac{1}{g} \label{eq:linsengleichung}\\
+	b &= \frac{f\cdot g}{g-f} \label{eq:b}
 \end{align}
-
+Durch das Einsetzen von (\ref{eq:b}) in Gleichung~(\ref{eq:z3}) ergibt sich ein Ausdruck für $z$, der nur von bekannten oder messbaren Größen abhängt. 
 \begin{equation}
 	z = g_1\cdot\sin(\beta)\cdot\left\{\cot\left[\beta-\arctan\left(\frac{\Delta p'}{\frac{f\cdot g}{g-f}}\right)\right]-\cot(\beta)\right\}
+	\label{eq:zfinal}
 \end{equation}
