@@ -2,7 +2,19 @@
 
 \subsection{Prinzip der Laser-Triangulation}
 
+Die Laser-Triangulation ist ein Verfahren zur optischen Abstandsmessung. Dabei wird die Eigenschaft einer Linse genutzt, den Winkel eines einfallenden Lichtstrahls in den Ort eines auf einen Schirm projizierten Bildpunktes zu transformieren. Bei dem erfassten Lichtstrahl handelt es sich dabei um den Lichtpunkt eines Lasers, der ein Objekt trifft. Der Projektionsschirm wird durch den CCD-Sensor einer Kamera gebildet.
+
+Wird das Objekt entlang des Laserstrahls verschoben, so ändert sich auch der Einfallswinkel auf das Linsensystem der feststehenden Kamera und es kommt zu einer Verschiebung des Bildpunktes auf dem Sensor. Aus dieser Verschiebung kann dann auf die Entfernungsänderung des Objektes geschlossen werden.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.8\linewidth]{img/Lasertriangulation_schema}
+	\caption{Schematischer Versuchsaufbau \cite{versuchsanleitung_lasertriangulation}}
+	\label{fig:schema_aufbau}
+\end{figure}
+
 \subsection{Herleitung}
+
 Die zurückgelegte Entfernung ergibt sich aus der Differenz der Gesamtentfernung $z_{ges}$ des Startpunktes $z_0$.
 \begin{equation}
 	z = z_{ges} - z_0
