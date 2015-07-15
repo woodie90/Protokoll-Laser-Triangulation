@@ -15,6 +15,8 @@ Wird das Objekt entlang des Laserstrahls verschoben, so ändert sich auch der Ei
 
 \subsection{Herleitung}
 
+In diesem Abschnitt erfolgt die Herleitung der Formel, durch die aus dem Abstand der Projektionen auf dem CCD-Sensor die Entfernungsänderung des Schirms berechnet werden kann. Die verwendeten Größen können Abbildung~\ref{fig:geometrie} entnommen werden.
+
 Die zurückgelegte Entfernung ergibt sich aus der Differenz der Gesamtentfernung $z_{ges}$ des Startpunktes $z_0$.
 \begin{equation}
 	z = z_{ges} - z_0
@@ -71,3 +73,42 @@ Durch das Einsetzen von (\ref{eq:b}) in Gleichung~(\ref{eq:z3}) ergibt sich ein 
 	z = g_1\cdot\sin(\beta)\cdot\left\{\cot\left[\beta-\arctan\left(\frac{\Delta p'}{\frac{f\cdot g}{g-f}}\right)\right]-\cot(\beta)\right\}
 	\label{eq:zfinal}
 \end{equation}
+
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}[scale=0.8]
+		\draw (0,0) -- (10,0) -- (10,3) coordinate (a3);
+		% Laser
+		\draw[green, thick] (0,0) -- (0,10);
+		\draw[red, thick, dashed] (0,10) -- (0,12);
+		% gestrichelte Linie
+		\draw[dash dot] (12.5,-2.5) coordinate (a6) -- (10,0);
+		\draw[dash dot] (10,0) coordinate (a2) -- (0,10) coordinate (a1);
+		\draw[dash dot]	(0,10) -- (-1,11);
+		% blau gestrichelte Linie
+		\draw[dash dot, blue] (10,0) -- (0,12) coordinate (a4);
+		\draw[dash dot, blue] (12.27,-2.72) coordinate (a7) -- (10,0);
+		% Sensor und Schärfeebene
+		\draw (-1,11) coordinate (a5) -- (0,12);
+		\draw (11.5,-3.5) -- (13.5,-1.5);
+		% Winkelbezeichnungen
+		\draw pic["$\beta$", draw=black, angle eccentricity=0.8, angle radius=2cm]{angle=a3--a2--a1};
+		\draw pic["$\alpha$", draw=black, angle eccentricity=0.95, angle radius=7cm]{angle=a4--a2--a1};
+		\draw pic["$\cdot$", draw=black, angle eccentricity=0.5, angle radius=0.3cm]{angle=a1--a5--a4};	
+		\draw pic["$\cdot$", draw=black, angle eccentricity=0.5, angle radius=0.2cm]{angle=a2--a6--a7};
+		% Beschriftungen
+		\draw (5,5) node[anchor=north east]{$g_1$};
+		\draw (-0.5,10.5) node[anchor=north east]{$g_2$};
+		\draw (0,11) node[anchor=west, red]{$z$};
+		\draw (-0.5,11.5) node[anchor=south east]{$\Delta p$};
+		\draw (5,6) node [anchor=south west, blue]{$g'$};
+		\draw (11.25,-1.25) node [anchor=south west]{$b$};
+		\draw (11.1,-1.4) node [anchor=north east, blue]{$b'$};
+		\draw (12.4,-2.6) node [anchor=north west]{$\Delta p'$};
+		\draw (13.5,-1.5) node [anchor=west]{CCD-Sensor};
+		\draw[thick] (-0.1,10) -- (0.1,10) node[anchor=west]{$z_0$};
+		\draw (5,0) node [anchor=north]{$d$};
+	\end{tikzpicture}
+	\caption{geometrisch Darstellung der Strahlengänge}
+	\label{fig:geometrie}
+\end{figure}
