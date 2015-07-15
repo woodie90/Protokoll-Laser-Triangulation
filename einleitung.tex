@@ -79,7 +79,7 @@ Durch das Einsetzen von (\ref{eq:b}) in Gleichung~(\ref{eq:z3}) ergibt sich ein 
 	\begin{tikzpicture}[scale=0.8]
 		\draw (0,0) -- (10,0) -- (10,3) coordinate (a3);
 		% Laser
-		\draw[green, thick] (0,0) -- (0,10);
+		\draw[green!90!black, thick] (0,0) -- (0,10);
 		\draw[red, thick, dashed] (0,10) -- (0,12);
 		% gestrichelte Linie
 		\draw[dash dot] (12.5,-2.5) coordinate (a6) -- (10,0);
@@ -106,7 +106,7 @@ Durch das Einsetzen von (\ref{eq:b}) in Gleichung~(\ref{eq:z3}) ergibt sich ein 
 		\draw (11.1,-1.4) node [anchor=north east, blue]{$b'$};
 		\draw (12.4,-2.6) node [anchor=north west]{$\Delta p'$};
 		\draw (13.5,-1.5) node [anchor=west]{CCD-Sensor};
-		\draw[thick] (-0.1,10) -- (0.1,10) node[anchor=west]{$z_0$};
+		\draw (0,5) node[anchor=west, green!90!black]{$z_0$};
 	\end{tikzpicture}
 	\caption{geometrisch Darstellung der Strahlengänge}
 	\label{fig:geometrie}
