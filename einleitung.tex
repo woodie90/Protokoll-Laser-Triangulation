@@ -77,6 +77,10 @@ Durch das Einsetzen von (\ref{eq:b}) in Gleichung~(\ref{eq:z3}) ergibt sich ein 
 \begin{figure}[h]
 	\centering
 	\begin{tikzpicture}[scale=0.8]
+		% Linse zuerst, weil im Hintergrund
+		\draw[fill=blue!15] (12,2) to[in=85,out=185] (8,-2) to[in=-95,out=5] (12,2) -- cycle;
+		\draw[dashed] (12.5,2.5) node[anchor=west]{Hauptebene} -- (7.5,-2.5);
+		% Grundgerüst
 		\draw (0,0) -- (10,0) -- (10,3) coordinate (a3);
 		% Laser
 		\draw[green!90!black, thick] (0,0) -- (0,10);
